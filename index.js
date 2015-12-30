@@ -10,10 +10,8 @@ let config;
  * 构造函数
  * @param {Object} 必须的配置对象
  */
-const sms = module.exports = function(options) {
-  _validateConfig(options);
-
-  config = options;
+const sms = module.exports = function(apikey) {
+  sms.apikey = apikey;
 
   return sms;
 };
@@ -98,25 +96,7 @@ function sendRequest(url, options, callback) {
  * set apikey
  */
 function setApikey(options) {
-  options.apikey = config.sms_opts.apikey;
-}
-
-/**
- * 校验config
- * @param {Object} config
- */
-function _validateConfig(config) {
-  if (!config.sms_opts) {
-    let error = new Error('请配置sms_opts');
-    debug(error);
-    throw error;
-  }
-
-  if (!config.sms_opts.apikey) {
-    let error = new Error('请配置apikey');
-    debug(error);
-    throw error;
-  }
+  options.apikey = sms.apikey;
 }
 
 /**

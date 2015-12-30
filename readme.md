@@ -26,7 +26,7 @@ module.exports = {
 
 ```js
 var config = require('config');
-var tw_sms = require('tw-sms')(config);
+var tw_sms = require('tw-sms')(config.sms_opts.apikey);
 
 // sms send
 let options1 = {

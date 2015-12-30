@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require('../config');
-const tw_sms = require('../')(config);
+const tw_sms = require('../')(config.sms_opts.apikey);
 const assert = require('assert');
 
 describe('test/index.js', function() {

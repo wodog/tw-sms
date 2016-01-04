@@ -10,7 +10,10 @@ npm install tw-sms
 ```
 
 ## set up
-  first, you should create `config.js`.
+
+  **development env**
+
+  you can create `config.js`.
 
   and then, add some config in it, just like below:
 
@@ -20,6 +23,16 @@ module.exports = {
     apikey: 'your apikey'   // get key from www.yunpian.com
   }
 };
+```
+
+**production env**
+
+  you don't need config sms's apikey anymore.
+
+  and you should start node like this:
+
+```sh
+SMS_KEY=yourkey node app.js
 ```
 
 ## usage

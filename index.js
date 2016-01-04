@@ -11,7 +11,7 @@ let config;
  * @param {Object} 必须的配置对象
  */
 const sms = module.exports = function(apikey) {
-  sms.apikey = apikey;
+  sms.apikey = apikey || process.env.SMS_KEY;
 
   return sms;
 };
@@ -34,7 +34,7 @@ sms.send = function(options, callback) {
     callback(err);
   }
 
-  setApikey(options);
+  _setApikey(options);
 
   sendRequest('https://sms.yunpian.com/v1/sms/send.json', options, callback);
 };
@@ -51,7 +51,7 @@ sms.send = function(options, callback) {
 sms.getReply = function(options, callback) {
   //todo validate
 
-  setApikey(options);
+  _setApikey(options);
 
   sendRequest('https://sms.yunpian.com/v1/sms/get_reply.json', options, callback);
 };
@@ -67,7 +67,7 @@ sms.getReply = function(options, callback) {
 sms.getRecord = function(options, callback) {
   //todo validate
 
-  setApikey(options);
+  _setApikey(options);
 
   sendRequest('https://sms.yunpian.com/v1/sms/get_record.json', options, callback);
 };
@@ -95,7 +95,7 @@ function sendRequest(url, options, callback) {
 /**
  * set apikey
  */
-function setApikey(options) {
+function _setApikey(options) {
   options.apikey = sms.apikey;
 }
 

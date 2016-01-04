@@ -34,8 +34,6 @@ sms.send = function(options, callback) {
     callback(err);
   }
 
-  _setApikey(options);
-
   sendRequest('https://sms.yunpian.com/v1/sms/send.json', options, callback);
 };
 
@@ -51,8 +49,6 @@ sms.send = function(options, callback) {
 sms.getReply = function(options, callback) {
   //todo validate
 
-  _setApikey(options);
-
   sendRequest('https://sms.yunpian.com/v1/sms/get_reply.json', options, callback);
 };
 
@@ -67,8 +63,6 @@ sms.getReply = function(options, callback) {
 sms.getRecord = function(options, callback) {
   //todo validate
 
-  _setApikey(options);
-
   sendRequest('https://sms.yunpian.com/v1/sms/get_record.json', options, callback);
 };
 
@@ -76,6 +70,8 @@ sms.getRecord = function(options, callback) {
  * send post request
  */
 function sendRequest(url, options, callback) {
+  _setApikey(options);
+
   request({
     url: url,
     method: 'POST',

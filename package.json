@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "DEBUG=tw-sms ./node_modules/mocha/bin/mocha -t 30000 ./test/index.js"
+    "test": "DEBUG=tw-sms ./node_modules/mocha/bin/mocha -t 30000 ./test/index.js",
+    "publish": "npm publish; git push git@github.com:wodog/tw-sms.git master; git push git@gitlab.dg1990.com:zhouchongyang/tw-sms.git master"
   },
   "author": "",
   "license": "ISC",
